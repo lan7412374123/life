@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <!-- 設置網頁圖標（favicon） -->
+    <link rel="icon" href="照片/logo.png" type="image/png">
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>L7412374123lan</title>
+    
+    <!-- 引入 CSS 樣式表 -->
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+<body>
+    <!-- 頂部導覽列 -->
+    <nav class="top-nav">
+        <div class="nav-left">
+            <span class="username">L7412374123lan</span>
+        </div>
+        <div class="nav-right">
+            <a href="https://www.instagram.com/l7412374123lan/" target="_blank">
+                <i class="fab fa-instagram"></i>
+            </a>
+        </div>
+    </nav>
+
+    <!-- 個人資料區塊 -->
+    <section class="profile">
+        <div class="profile-avatar">
+            <img src="照片/頭像.jpg" alt="頭像" class="avatar">
+        </div>
+        <div class="profile-info">
+            <p><b>柏安</b></p>
+            <p>- - - - - - - - - - - - - - - - - - - - - - - - #<br>
+                我養了一隻貓，他叫歐小貓🐈‍⬛ 👾</p>
+        </div>
+    </section>
+
+    <!-- 限時動態區塊（由 JavaScript 生成） -->
+    <section class="stories"></section>
+
+    <!-- 貼文統計區塊 -->
+    <section class="stats">
+        <div>
+            <span id="post-count" class="post-number">80</span>
+            <div class="post-label">貼文</div>
+        </div>
+    </section>
+
+    <!-- 貼文分類選單 -->
+    <div class="story-buttons">
+        <button class="story-btn" data-category="all">全部</button>
+        <button class="story-btn" data-category="攝影">攝影</button>
+        <button class="story-btn" data-category="日常">日常</button>
+        <button class="story-btn" data-category="Minecraft">Minecraft</button>
+        <button class="story-btn" data-category="其他">其他</button>
+    </div>
+
+    <!-- 貼文展示區 -->
+    <div class="post-grid">
+        <div class="post-item" data-category="攝影" data-description="這是攝影作品<br>這是攝影作品這是攝影作品這是攝影作品<br>#22 #123 #123">
+            <img src="照片/攝影/和食/和食.jpg" alt="攝影">
+        </div>
+        <div class="post-item" data-category="攝影" data-description="這是攝影作品<br>這是攝影作品這是攝影作品這是攝影作品<br>#22 #123 #123">
+            <img src="照片/攝影/夕陽/夕陽.jpg" alt="攝影">
+        </div>
+        <div class="post-item" data-category="日常" data-description="今天的日常">
+            <img src="照片/日常/貓.png" alt="日常">
+        </div>
+        <div class="post-item" data-category="Minecraft" data-description="Minecraft 建築">
+            <img src="照片/Mincraft/麥塊.png" alt="Minecraft">
+        </div>
+        <div class="post-item" data-category="攝影" data-description="這是攝影作品<br>這是攝影作品這是攝影作品這是攝影作品<br>#22 #123 #123">
+            <img src="照片/攝影/玉泉洞/玉泉洞.jpg" alt="攝影">
+        </div>
+        <div class="post-item" data-category="攝影" data-description="這是攝影作品<br>這是攝影作品這是攝影作品這是攝影作品<br>#22 #123 #123">
+            <img src="照片/攝影/咖啡店/咖啡店.jpg" alt="攝影">
+        </div>
+        <div class="post-item" data-category="攝影" data-description="這是攝影作品<br>這是攝影作品這是攝影作品這是攝影作品<br>#22 #123 #123">
+            <img src="照片/攝影/那霸機場/那霸機場.jpg" alt="攝影">
+        </div>
+
+
+        <div class="post-item" data-category="攝影" data-location="台北, 台灣" data-description="這是攝影作品">
+            <img src="照片/攝影/和食/和食.jpg" alt="攝影">
+        </div>
+        
+        <div class="post-item" data-category="攝影" data-location="墾丁, 台灣" data-description="這是攝影作品">
+            <video src="照片/攝影/潛水/潛水.MOV" alt="攝影" autoplay muted loop></video>
+        </div>
+
+    </div>
+
+    <!-- 貼文浮動視窗 -->
+    <div id="post-modal" class="modal">
+        <div class="modal-content">
+            <!-- 這裡的 img 和 video 是用來切換顯示的 -->
+            <img id="modal-image" src="" alt="貼文圖片" style="display: none;">
+            <video id="modal-video" controls style="display: none;"></video>
+            
+            <!-- 貼文敘述區 -->
+            <div class="post-description">
+                <div class="post-header">
+                    <img src="照片/頭像.jpg" alt="頭像" class="post-avatar">
+                    <div class="post-user-info">
+                        <span class="post-username">l7412374123lan</span>
+                        <span class="post-location"></span> <!-- 地點資訊 -->
+                    </div>
+                </div>
+                <hr class="post-divider"> <!-- 分隔線 -->
+                <p id="modal-text"></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- 引入 JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>

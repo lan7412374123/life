@@ -1,0 +1,955 @@
+/* styles.css */
+
+head {
+    display: flex;
+}
+
+/* 頂部區域的 Logo 樣式 */
+header .logo img {
+    width: 120px; /* 設定 Logo 寬度 */
+    height: auto; /* 高度自動調整，保持比例 */
+}
+
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+/* 頂部導覽列 */
+.top-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #fff;
+    border-bottom: 1px solid #ddd;
+    width: 100%;
+}
+
+.nav-left .username {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.nav-right a {
+    margin-left: 15px;
+    font-size: 20px;
+    color: #333;
+    text-decoration: none;
+}
+
+.nav-right a:hover {
+    color: #007bff;
+}
+
+
+
+
+
+
+/* 個人資料區塊 */
+.profile {
+    display: flex;
+    flex-direction: row; /* 讓頭像和簡介並排顯示 */
+    align-items: center; /* 頭像與簡介區垂直置中對齊 */
+    width: 60%;  /* 設定寬度為 60% */
+    margin: 0 auto;  /* 讓區塊居中 */
+    padding: 20px; /* 增加內邊距 */
+}
+
+
+
+.profile-avatar {
+    display: flex;
+    justify-content: center; /* 讓頭像居中 */
+    width: 100%;
+    margin-bottom: 10px; /* 頭貼與簡介的間距 */
+}
+
+.avatar {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+}
+
+.profile-info {
+    width: 100%; /* 讓簡介區塊橫向佔滿 */
+    text-align: left; /* 文字靠左對齊 */
+}
+
+.profile-info p {
+    font-size: 18px; /* 設定文字大小 */
+    color: #000000; /* 讓顏色稍微淡一點 */
+}
+
+
+/* 讓區塊在小螢幕（手機）下自動調整寬度 */
+@media (max-width: 768px) {
+    .profile {
+        display: flex;
+        flex-direction: column; /* 讓頭像和簡介變成上下排列 */
+        align-items: flex-start; /* 整體靠左對齊 */
+        width: 100%;  /* 設定寬度為 60% */
+        margin: 0 auto;  /* 讓區塊居中 */
+        padding: 20px; /* 增加內邊距 */
+    }
+    
+    
+    
+    .profile-avatar {
+        display: flex;
+        justify-content: flex-start; /* 確保頭貼靠左 */
+        width: 100%;/* 全局設定 */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+        
+        /* 頂部導航列 */
+        .navbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color: #fff;
+            padding: 10px 20px;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        /* 個人資料區塊 */
+        .profile {
+            display: flex;
+            align-items: center;
+            padding: 20px;
+            background-color: #fff;
+        }
+        
+        .profile-image {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            margin-right: 20px;
+        }
+        
+        .profile-info {
+            flex-grow: 1;
+        }
+        
+        .profile-info h2 {
+            margin: 0;
+            font-size: 20px;
+        }
+        
+        .profile-info p {
+            margin: 5px 0;
+            color: #666;
+        }
+        
+        /* 限時動態區塊 */
+        .stories {
+            display: flex;
+            overflow: hidden;
+            padding: 10px;
+            background-color: #fff;
+        }
+        
+        .story {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            margin-right: 10px;
+            overflow: hidden;
+        }
+        
+        .story img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        /* 貼文展示區 */
+        .posts {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 10px;
+            padding: 10px;
+        }
+        
+        .post {
+            width: 100%;
+            cursor: pointer;
+        }
+        
+        .post img {
+            width: 100%;
+            height: auto;
+            border-radius: 5px;
+        }
+        
+        /* 浮動視窗 */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .modal-content {
+            display: flex;
+            background: #fff;
+            width: 80%;
+            max-width: 800px;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        
+        .modal-image {
+            flex: 2;
+            background: black;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .modal-image img {
+            max-width: 100%;
+            max-height: 100%;
+        }
+        
+        .modal-description {
+            flex: 1;
+            padding: 20px;
+        }
+        
+        .modal-description p {
+            margin: 0;
+            color: #333;
+        }
+        
+        /* 隱藏按鈕 */
+        .close-btn {
+            display: none;
+        }
+        
+        /* 響應式設計 */
+        @media (max-width: 600px) {
+            .profile {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .profile-image {
+                margin-bottom: 10px;
+            }
+            .modal-content {
+                flex-direction: column;
+            }
+        }
+        
+        margin-bottom: 10px; /* 頭貼與簡介的間距 */
+    }
+    
+    .avatar {
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+    }
+    
+    .profile-info {
+        width: 100%; /* 讓簡介區塊橫向佔滿 */
+        text-align: left; /* 文字靠左對齊 */
+    }
+    
+    .profile-info p {
+        font-size: 20px; /* 設定文字大小 */
+        color: #000000; /* 讓顏色稍微淡一點 */
+    }
+}
+
+
+
+/* 調整限時動態區塊 */
+.stories {
+    display: flex;
+    justify-content: center; /* 讓內容水平置中 */
+    align-items: center; /* 讓內容垂直置中（如果需要） */
+    gap: 10px; /* 設定每個故事之間的間距 */
+    flex-wrap: wrap; /* 允許內容換行 */
+    width: 60%; /* 設定寬度為 60% */
+    margin: 0 auto;  /* 讓區塊居中 */
+}
+
+body {
+    font-family: Arial, sans-serif;
+}
+
+
+
+
+
+/* 設定所有元素 box-sizing */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* 調整每個限時動態的外觀 */
+.story {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    text-align: center;
+    width: 11.5%;
+}
+
+/* 調整圖片大小 */
+.story img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #ffffff;
+}
+
+/* 限時動態標題樣式 */
+.story p {
+    margin-top: 5px;  /* 讓標題與圈圈保持距離 */
+    font-size: 13px;
+    color: black; /* 讓標題清楚可見 */
+}
+
+@media (min-width: 768px) and (max-width: 1000px) {
+    .story {
+        width: 13%;
+    }
+    .story img {
+        width: 70px; /* 讓圖片縮小為 60px */
+        height: 70px; /* 讓圖片高度縮小 */
+    }
+
+    .story p {
+        font-size: 11px; /* 讓標題縮小 */
+    }
+}
+
+/* 讓區塊在小螢幕（手機）下自動調整寬度 */
+@media (max-width: 768px) {
+    .stories {
+        width: 100%;  /* 在手機螢幕下，這些區塊寬度為 100% */
+        justify-content: center; /* 保持居中 */
+    }
+    .story {
+        width: 14%;
+    }
+    .story img {
+        width: 70px; /* 讓圖片縮小為 60px */
+        height: 70px; /* 讓圖片高度縮小 */
+    }
+
+    .story p {
+        font-size: 11px; /* 讓標題縮小 */
+    }
+}
+
+/* 當解析度小於 480px 時 (例如更小的手機螢幕) */
+@media (max-width: 480px) {
+    .stories {
+        justify-content: center; /* 保持居中 */
+    }
+    .story {
+        width: 13%;
+    }
+    .story img {
+        width: 60px; /* 更小的圖片 */
+        height: 60px; /* 更小的圖片高度 */
+    }
+
+    .story p {
+        font-size: 10px; /* 更小的標題字體 */
+    }
+}
+
+
+
+
+
+/* 浮動視窗背景 */
+.story-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+/* 限時動態標題區塊 */
+.story-header {
+    width: 80vw; /* 與影片寬度一致 */
+    max-width: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+
+
+}
+
+
+
+
+
+
+
+
+/* 限時動態資訊 (縮圖 + 標題) */
+.story-info {
+    display: flex;
+    align-items: center;
+}
+
+/* 縮圖 */
+.story-thumbnail {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 10px;
+}
+
+/* 標題 */
+.story-title {
+    font-size: 18px;
+}
+
+/* 關閉按鈕 */
+.close-button {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+/* 影片播放區塊 */
+.story-video {
+    width: 80vw;
+    max-width: 400px;
+    max-height: 80vh;
+    object-fit: contain; /* 保持影片比例 */
+    display: block;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+/* 觸控區塊，讓使用者點擊左右切換 */
+.story-touch-area {
+    position: absolute;
+    top: 0;
+    width: 50%;
+    height: 100%;
+    z-index: 3; /* 確保點擊區域能觸發 */
+}
+
+.left-touch {
+    left: 0;
+}
+
+.right-touch {
+    right: 0;
+}
+
+
+
+
+
+
+
+
+/* 貼文統計區塊 */
+.stats {
+    width: 60%; /* 設定寬度為 60% */
+    text-align: center;
+    margin: 10px auto 0 auto;
+    padding: 10px 0;
+    border-top: 1px solid lightgray;  /* 上方灰色線 */
+    border-bottom: 1px solid lightgray; /* 下方灰色線 */
+}
+
+/* 讓區塊在小螢幕（手機）下自動調整寬度 */
+@media (max-width: 768px) {
+    .stats {
+        width: 100%;  /* 在手機螢幕下，這些區塊寬度為 100% */
+    }
+}
+
+.post-number {
+    font-size: 20px; /* 讓數字變大 */
+    font-weight: bold;
+}
+
+.post-label {
+    font-size: 12px; /* 讓"貼文"字變小 */
+    color: gray; /* 讓"貼文"變灰色 */
+}
+
+
+
+
+
+.story-buttons {
+    display: flex;
+    justify-content: center; /* 讓按鈕區塊整體置中 */
+    width: 60%; /* 設定寬度為 60% */
+    margin: 0 auto 0 auto; /* 置中並設定上方 10px 間距 */
+    gap: 10px; /* 按鈕之間的間距 */
+}
+
+/* 讓區塊在小螢幕（手機）下自動調整寬度 */
+@media (max-width: 768px) {
+    .story-buttons {
+        width: 100%;  /* 在手機螢幕下，這些區塊寬度為 100% */
+    }
+}
+
+
+.story-btn {
+    flex: 1; /* 讓按鈕等寬 */
+    padding: 10px;
+    background-color: #ffffff;
+    color: gray;
+    border: none;
+    text-align: center;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+
+.story-btn:active {
+    color: rgb(173, 173, 173);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* 貼文展示區的容器 */
+.post-grid {
+    display: grid; /* 使用 grid 來排列圖片 */
+    grid-template-columns: repeat(3, 1fr); /* 三列的佈局，每列的寬度為 1fr */
+    gap: 5px; /* 兩張圖片之間的間距 */
+    margin: 0 5px;
+    width: 60%; /* 容器的寬度設定為螢幕寬度的 60% */
+    margin: 0 auto; /* 讓容器居中對齊 */
+}
+
+/* 當解析度小於 768px 時 (例如手機或小螢幕) */
+@media (max-width: 768px) {
+    .post-grid {
+        grid-template-columns: repeat(3, 1fr); /* 三列的佈局，每列的寬度為 1fr */
+        margin: 0 5px;
+        width: 100%; /* 寬度設定為 100% */
+    }
+}
+
+/* 當解析度小於 480px 時 (例如極小的螢幕) */
+@media (max-width: 480px) {
+    .post-grid {
+        grid-template-columns: repeat(3, 1fr); /* 三列的佈局，每列的寬度為 1fr */
+        margin: 0 5px;
+        width: 100%; /* 寬度設定為 100% */
+    }
+}
+
+
+
+.post-item {
+    width: 100%;
+    aspect-ratio: 1 / 1; /* 確保是正方形 */
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.post-item img,
+.post-item video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* 圖片、影片填滿格子 */
+    border-radius: 0; /* 取消圓角 */
+}
+
+
+
+
+
+/* 浮動視窗 */
+.modal {
+    display: none; /* 預設隱藏，只有在點擊貼文後才會顯示 */
+    position: fixed; /* 固定在視窗上，不受滾動影響 */
+    top: 0; /* 從視窗頂部開始 */
+    left: 0; /* 從視窗左側開始 */
+    width: 100%; /* 覆蓋整個螢幕寬度 */
+    height: 100%; /* 覆蓋整個螢幕高度 */
+    background: rgba(0, 0, 0, 0.8); /* 背景半透明黑色，營造遮罩效果 */
+    justify-content: center; /* 水平置中內容 */
+    align-items: center; /* 垂直置中內容 */
+}
+
+
+/* 桌面（大於 1000px） */
+@media (min-width: 1000px) {
+
+/* 浮動視窗內容（桌機版） */
+.modal-content {
+    background: rgb(0, 0, 0); /* 背景半透明黑色，營造遮罩效果 */
+    max-width: 70%; /* 設定浮動視窗的寬度為螢幕的 80% */
+    width: auto;
+    height: auto;
+    max-height: 90%; /* 限制最大高度為視窗高度的 90%，避免超出視窗 */
+    display: flex; /* 使用 Flexbox 進行排版 */
+    flex-direction: row; /* 設定主軸方向為水平排列（左圖右文） */
+    border-radius: 8px; /* 設定圓角邊框，讓視窗邊緣圓滑 */
+    justify-content: center; /* 讓內容在主軸（水平方向）居中 */
+    overflow: hidden; /* 隱藏超出範圍的內容，防止捲軸出現 */
+    align-items: stretch; /* 讓子元素（圖片與描述）高度相等 */
+
+}
+
+/* 圖片顯示設定 */
+.modal-content img,
+.modal-content video {
+    background: rgb(0, 0, 0); /* 設定背景顏色為透明色 */
+    max-width: 75%;
+    /*height: auto;*/
+    /*ax-width: 70%; /* 讓圖片填滿其容器的寬度 */
+    max-height: 90vh; /* 限制圖片最大高度為視窗的 60%，確保下方有空間顯示敘述 */
+    object-fit: contain; /* 讓圖片完整顯示，不裁切或變形 */
+}
+
+
+
+/* 貼文敘述區 */
+.post-description {
+    width: 35%; /* 讓圖片填滿其容器的寬度 */
+    /*height:100%;*/
+    background: rgb(255, 255, 255); /* 設定背景顏色為白色 */
+    padding: 20px; /* 設定內邊距，讓內容不緊貼邊緣 */
+    text-align: left; /* 讓文字靠左對齊 */
+    display: flex; /* 使用 Flexbox 讓內部內容可以靈活排列 */
+    flex-direction: column; /* 內容垂直排列 */
+    align-items: flex-start; /* 讓內容靠左對齊 */
+    overflow-y: auto; /* 若內容超出，允許垂直滾動 */
+    /*max-height: 30vh; /* 限制最大高度為視窗的 30%，避免超出畫面 */
+    
+}
+
+
+/* 貼文內的文字（例如貼文描述） */
+.modal-content p {
+    margin-top: 10px; /* 與圖片保持一點距離 */
+    font-size: 16px; /* 設定字體大小 */
+    color: #333; /* 設定文字顏色為深灰色 */
+}
+
+
+/* 貼文的頭像 + 使用者名稱區塊 */
+.post-header {
+    display: flex; /* 使用 flex 讓頭像和文字排成一列 */
+    align-items: center; /* 垂直置中對齊 */
+    justify-content: flex-start; /* 讓內容靠左對齊 */
+    width: 70px; /* 頭像寬度設定為 30px */
+    height: 70px; /* 頭像高度同寬度，確保是正方形 */
+
+}
+
+/* 頭像設定 */
+.post-avatar {
+    width: 40px; /* 頭像寬度設定為 30px */
+    height: 40px; /* 頭像高度同寬度，確保是正方形 */
+    border-radius: 50%; /* 讓頭像變成圓形 */
+    object-fit: cover; /* 確保圖片不變形，並且填滿頭像框 */
+    margin-right: 8px; /* 頭像與文字之間的間距 */
+}
+
+/* 貼文的使用者名稱 + 地區 */
+.post-user-info {
+    display: flex;
+    flex-direction: column; /* 讓名稱和地區垂直排列 */
+}
+
+/* 使用者名稱 */
+.post-username {
+    /* font-weight: bold; 讓名稱加粗 */
+    font-size: 15px; /* 讓字體大小為 14px */
+}
+
+/* 地區 */
+.post-location {
+    font-size: 12px; /* 字體稍微小一點 */
+    color: rgb(0, 0, 0); /* 設定顏色為灰色 */
+    margin-top: 2px; /* 與名稱保持一點距離 */
+}
+
+.post-divider {
+    width: 100%; /* 讓線條填滿整個區塊 */
+    border: none;
+    height: 1px; /* 設定線條高度 */
+    background-color: #ccc; /* 設定顏色 */
+    margin: 4px 0; /* 調整上下間距 */
+}
+
+
+/* 其他文字樣式 */
+.post-description p {
+    font-size: 14px; /* 貼文描述的文字大小 */
+    line-height: 1.7; /* 設定行距較小，讓文字間距較緊密 */
+}
+
+}
+
+
+/* 浮動視窗內容（手機版-桌機版之間） */
+@media (min-width: 547px) and (max-width: 1000px) {
+            .modal-content {
+                background: rgb(0, 0, 0, 1); /* 設定背景顏色為透明色 */
+                max-width: 80vw; /* 設定浮動視窗的寬度為螢幕的 80% */
+                height: 80%; /* 限制最大高度為視窗高度的 90%，避免超出視窗 */
+                max-height: 90%; /* 限制最大高度為視窗高度的 90%，避免超出視窗 */
+                display: flex; /* 使用 Flexbox 進行排版 */
+                flex-direction: row; /* 設定主軸方向為水平排列（左圖右文） */
+                border-radius: 8px; /* 設定圓角邊框，讓視窗邊緣圓滑 */
+                justify-content: center; /* 讓內容在主軸（水平方向）居中 */
+                overflow: hidden; /* 隱藏超出範圍的內容，防止捲軸出現 */
+            }
+
+
+
+            /* 圖片顯示設定 */
+            .modal-content img,
+            .modal-content video {
+                max-width: 60%; /* 讓圖片填滿其容器的寬度 */
+                max-height: 90vh; /* 限制圖片最大高度為視窗的 60%，確保下方有空間顯示敘述 */
+                object-fit: contain; /* 讓圖片完整顯示，不裁切或變形 */
+            }
+
+            /* 貼文敘述區 */
+            .post-description {
+                width: 40%; /* 讓圖片填滿其容器的寬度 */
+                background: rgb(255, 255, 255); /* 設定背景顏色為白色 */
+                padding: 20px; /* 設定內邊距，讓內容不緊貼邊緣 */
+                text-align: left; /* 讓文字靠左對齊 */
+                display: flex; /* 使用 Flexbox 讓內部內容可以靈活排列 */
+                flex-direction: column; /* 內容垂直排列 */
+                align-items: flex-start; /* 讓內容靠左對齊 */
+                overflow-y: auto; /* 若內容超出，允許垂直滾動 */
+                /*max-height: 30vh; /* 限制最大高度為視窗的 30%，避免超出畫面 */
+            }
+
+
+            /* 貼文內的文字（例如貼文描述） */
+            .modal-content p {
+                margin-top: 10px; /* 與圖片保持一點距離 */
+                font-size: 16px; /* 設定字體大小 */
+                color: #333; /* 設定文字顏色為深灰色 */
+            }
+
+
+            /* 貼文的頭像 + 使用者名稱區塊 */
+            .post-header {
+                display: flex; /* 使用 flex 讓頭像和文字排成一列 */
+                align-items: center; /* 垂直置中對齊 */
+                width: 70px; /* 頭像寬度設定為 30px */
+                justify-content: flex-start; /* 讓內容靠左對齊 */
+            }
+
+            /* 頭像設定 */
+            .post-avatar {
+                width: 30px; /* 頭像寬度設定為 30px */
+                height: 30px; /* 頭像高度同寬度，確保是正方形 */
+                border-radius: 50%; /* 讓頭像變成圓形 */
+                object-fit: cover; /* 確保圖片不變形，並且填滿頭像框 */
+                margin-right: 8px; /* 頭像與文字之間的間距 */
+            }
+
+            /* 使用者名稱 */
+            .post-username {
+                /*font-weight: bold; /* 讓名稱加粗 */
+                font-size: 14px; /* 讓字體大小為 14px */
+            }
+
+            /* 地區 */
+            .post-location {
+                font-size: 12px; /* 字體稍微小一點 */
+                color: rgb(0, 0, 0); /* 設定顏色為灰色 */
+                margin-top: 2px; /* 與名稱保持一點距離 */
+            }
+
+            .post-divider {
+                width: 100%; /* 讓線條填滿整個區塊 */
+                border: none;
+                height: 1px; /* 設定線條高度 */
+                background-color: #ccc; /* 設定顏色 */
+                margin: 4px 0; /* 調整上下間距 */
+            }
+
+            /* 其他文字樣式 */
+            .post-description p {
+                font-size: 12px; /* 貼文描述的文字大小 */
+                line-height: 1.6; /* 設定行距較小，讓文字間距較緊密 */
+            }
+
+}
+
+
+
+
+
+    /* 浮動視窗內容（手機版） */
+@media (max-width: 547px) {
+
+            .modal-content {
+                background: rgb(0, 0, 0, 0); /* 設定背景顏色為透明色 */
+                width: 80%;
+                max-height: 90vh;
+                display: flex;
+                flex-direction: column; /* 讓圖片和敘述區垂直排列 */
+                border-radius: 8px;
+                overflow: hidden; /* 防止內容超出 */
+            }
+
+            /* 圖片顯示設定 */
+            .modal-content img,
+            .modal-content video {
+                max-width: 100%;
+                max-height: 60vh; /* 限制圖片高度，讓敘述區有空間 */
+                object-fit: contain;
+            }
+
+            /* 貼文敘述區 */
+            .post-description {
+                background: rgb(255, 255, 255); /* 設定背景顏色為白色 */
+                padding: 20px;
+                text-align: left;
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                overflow-y: auto; /* 允許超出的內容滾動 */
+                max-height: 30vh; /* 限制最大高度，確保不會超出視窗 */
+            }
+
+            /* 貼文內的文字（例如貼文描述） */
+            .modal-content p {
+                margin-top: 10px; /* 與圖片保持一點距離 */
+                font-size: 16px; /* 設定字體大小 */
+                color: #333; /* 設定文字顏色為深灰色 */
+            }
+
+
+            /* 貼文的頭像 + 使用者名稱區塊 */
+            .post-header {
+                display: flex; /* 使用 flex 讓頭像和文字排成一列 */
+                align-items: center; /* 垂直置中對齊 */
+                justify-content: flex-start; /* 讓內容靠左對齊 */
+                width: 70px; /* 頭像寬度設定為 70px */
+            }
+
+            /* 頭像設定 */
+            .post-avatar {
+                width: 30px; /* 頭像寬度設定為 30px */
+                height: 30px; /* 頭像高度同寬度，確保是正方形 */
+                border-radius: 50%; /* 讓頭像變成圓形 */
+                object-fit: cover; /* 確保圖片不變形，並且填滿頭像框 */
+                margin-right: 8px; /* 頭像與文字之間的間距 */
+            }
+
+            /* 使用者名稱 */
+            .post-username {
+                font-weight: bold; /* 讓名稱加粗 */
+                font-size: 14px; /* 讓字體大小為 14px */
+            }
+
+            /* 地區 */
+            .post-location {
+                font-size: 12px; /* 字體稍微小一點 */
+                color: rgb(0, 0, 0); /* 設定顏色為灰色 */
+                margin-top: 2px; /* 與名稱保持一點距離 */
+            }
+
+            .post-divider {
+                width: 100%; /* 讓線條填滿整個區塊 */
+                border: none;
+                height: 1px; /* 設定線條高度 */
+                background-color: #ccc; /* 設定顏色 */
+                margin: 4px 0; /* 調整上下間距 */
+            }
+
+            /* 其他文字樣式 */
+            .post-description p {
+                font-size: 12px; /* 貼文描述的文字大小 */
+                line-height: 1.3; /* 設定行距較小，讓文字間距較緊密 */
+            }
+
+        }
+
+
+
+
+
+
+
+
+
+/* 底部導覽列 */
+.bottom-nav {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background: white;
+    display: flex;
+    justify-content: space-around;
+    padding: 10px;
+    border-top: 1px solid #ddd;
+}
+
+.bottom-nav button {
+    border: none;
+    background: none;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+
+
+
+
